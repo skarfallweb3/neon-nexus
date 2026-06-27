@@ -390,10 +390,10 @@ function CategoryFilters() {
 
 /* ---------- LIVE AUCTIONS ---------- */
 const auctions = [
-  { img: n7, name: "Cyber Mask 042", creator: "Kai Mendez", bid: "6.42", h: 2, m: 14, s: 8 },
-  { img: n8, name: "Floating Realm", creator: "Mira Sato", bid: "3.18", h: 5, m: 32, s: 41 },
-  { img: n2, name: "Liquid Aether #19", creator: "Studio Vols", bid: "9.04", h: 0, m: 48, s: 22 },
-  { img: n3, name: "Polyhedron 008", creator: "ARC Lab", bid: "2.66", h: 11, m: 5, s: 17 },
+  { img: n7, name: "Cyber Mask 042", creator: "Kai Mendez", bid: "6.42", h: 2, m: 14, s: 8, edition: 42 },
+  { img: n8, name: "Floating Realm", creator: "Mira Sato", bid: "3.18", h: 5, m: 32, s: 41, edition: 7 },
+  { img: n2, name: "Liquid Aether #19", creator: "Studio Vols", bid: "9.04", h: 0, m: 48, s: 22, edition: 19 },
+  { img: n3, name: "Polyhedron 008", creator: "ARC Lab", bid: "2.66", h: 11, m: 5, s: 17, edition: 8 },
 ];
 
 function LiveAuctions() {
@@ -418,8 +418,8 @@ function LiveAuctions() {
 }
 
 function NftCard({
-  img, name, creator, bid, h, m, s,
-}: { img: string; name: string; creator: string; bid: string; h: number; m: number; s: number }) {
+  img, name, creator, bid, h, m, s, edition,
+}: { img: string; name: string; creator: string; bid: string; h: number; m: number; s: number; edition: number }) {
   return (
     <article className="group overflow-hidden rounded-2xl glass p-3 transition hover:-translate-y-1 hover:bg-white/[0.06]">
       <div className="relative overflow-hidden rounded-xl">
@@ -441,7 +441,7 @@ function NftCard({
       <div className="px-1 pb-1 pt-3">
         <div className="flex items-center justify-between">
           <h3 className="text-sm font-semibold">{name}</h3>
-          <span className="text-[10px] text-muted-foreground">#{Math.floor(Math.random() * 999)}</span>
+          <span className="text-[10px] text-muted-foreground">#{edition}</span>
         </div>
         <p className="mt-0.5 text-xs text-muted-foreground">by {creator}</p>
         <div className="mt-3 flex items-end justify-between">
